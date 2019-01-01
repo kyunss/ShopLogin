@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ShopLogin</string>
+    <string name="center_text">주문하신 상품의 계정으로 로그인하시면\n배송 정보를 실시간으로 볼 수 있어요.</string>
+    <string name="center_bottom_text">꽃피는시절 비회원 주문 및 SNS 계정(페이스북/네이버)으로 로그인하여 주문하신 경우,\&apos;주문 페이지 바로가기\&apos;를 이용해주세요.</string>
+    <string name="login_id_hint">꽃피는시절 아이디</string>
+    <string name="login_pw_hint">비밀번호</string>
+    <string name="auto_login_agree">자동 로그인 약관에 동의</string>
+    <string name="login_button">로그인</string>
+    <string name="find_id_password_button">아이디&amp;비밀번호 찾기</string>
+    <string name="terms_auto_login_button">자동 로그인 연결 약관</string>
+    <string name="title_toolbar">로그인(꽃피는시절)</string>
+
+</resources>
