@@ -7,6 +7,9 @@
         <variable
             name="activity"
             type="com.example.daniel.shoplogin.activity.LoginActivity" />
+        <variable
+            name="login"
+            type="com.example.daniel.shoplogin.model.Login"/>
 
     </data>
 
@@ -105,6 +108,7 @@
                 </android.support.constraint.ConstraintLayout>
 
                 <android.support.constraint.ConstraintLayout
+                    android:visibility="@{!login.setAutoLogin}"
                     android:id="@+id/view_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,18 +127,21 @@
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_check"
+                        app:layout_constraintEnd_toStartOf="@+id/checkbox_auto_login"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <Button
-                        android:id="@+id/btn_check"
+                    <CheckBox
+                        android:id="@+id/checkbox_auto_login"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/uncheck_button"
+                        android:button="@null"
+                        android:background="@drawable/auto_login_selector"
+                        android:onClick="@{activity::onCheckButtonClicked}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </android.support.constraint.ConstraintLayout>
 
                 <android.support.constraint.ConstraintLayout
@@ -150,7 +157,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true">
                     <requestFocus />
-®
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/iv_id_icon"
                         android:layout_width="35dp"
@@ -249,6 +256,17 @@
                         app:layout_constraintTop_toBottomOf="@+id/et_pw" />
                 </android.support.constraint.ConstraintLayout>
 
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:visibility="visible"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:indicatorColor="@android:color/black"
+                    app:indicatorName="LineSpinFadeLoaderIndicator"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_login"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_login"
+                    app:layout_constraintStart_toStartOf="@+id/btn_login"
+                    app:layout_constraintTop_toTopOf="@+id/btn_login" />
+
                 <Button
                     android:id="@+id/btn_login"
                     android:layout_width="0dp"
@@ -257,7 +275,7 @@
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="8dp"
                     android:background="@color/conceptColor"
-                    android:onClick="onLoginButtonClicked"
+                    android:onClick="@{activity::onLoginButtonClicked}"
                     android:text="@string/login_button"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
@@ -279,11 +297,11 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
+                    android:visibility="@{login.setAutoLogin}"
                     android:id="@+id/btn_auto_login_terms"
                     android:layout_width="0dp"
                     android:layout_height="65dp"
                     android:text="@string/terms_auto_login_button"
-                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
