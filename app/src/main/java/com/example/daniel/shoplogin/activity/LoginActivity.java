@@ -1,6 +1,7 @@
 package com.example.daniel.shoplogin.activity;
 
 import android.databinding.DataBindingUtil;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private final String TAG = getClass().getName();
     private ActivityLoginBinding mBinding = null;
     private Login loginModel;
-    private boolean isCheckButtonSelected = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,47 +31,66 @@ public class LoginActivity extends AppCompatActivity {
         mBinding.setLogin(loginModel);
         mBinding.setActivity(this);
 
+        MyPreference.putAutoLoginValue(LoginActivity.this , false); // FOR TEST
+
         //약관에 동의한 경우
-        if (MyPreference.getAutoLoginValue(LoginActivity.this)) {
+        if (MyPreference.getAutoLoginValue(LoginActivity.this))
             loginModel.setAutoLogin.set(true);
-//            mBinding.viewLogin.setVisibility(View.GONE);
-//            mBinding.btnAutoLoginTerms.setVisibility(View.VISIBLE);
-        } else {
+         else
             loginModel.setAutoLogin.set(false);
-//            mBinding.viewLogin.setVisibility(View.VISIBLE);
-//            mBinding.btnAutoLoginTerms.setVisibility(View.GONE);
-        }
+
     }
 
     public void onLoginButtonClicked(View view) {
-        Log.d(TAG, "LoginButtonClicked");
 
-        /** 기존 약관 동의 여부 확인 **/
-        boolean isAutoLogin = MyPreference.getAutoLoginValue(LoginActivity.this);
-        if (isAutoLogin) {
+        /** 기존 사용자인 경우 **/
+        if (MyPreference.getAutoLoginValue(LoginActivity.this)) {
 
-            String id = mBinding.etId.getText().toString();
-            String password = mBinding.etId.getText().toString();
-
-            if (!id.isEmpty() && !password.isEmpty()) {
-
-                //5초동안 로그인 중.. 띄우기
-                //5초 후 로그인 완료
-
-            }
+            login();
 
         } else {
             /** 처음 로그인 하는 경우 **/
             if (mBinding.checkboxAutoLogin.isChecked()) {
 
-                //5초동안 로그인 중.. 띄우기
-                //5초 후 로그인 완료
+                login();
 
             } else {
                 Toast.makeText(LoginActivity.this, getString(R.string.msg_uncheck_term), Toast.LENGTH_SHORT).show();
-                return;
             }
+        }
+    }
 
+    public void login(){
+
+        String id = mBinding.etId.getText().toString();
+        String password = mBinding.etPw.getText().toString();
+
+        if (!id.isEmpty() && !password.isEmpty()) {
+
+            mBinding.tvCenter.setText(getString(R.string.center_text_login_ing));
+            mBinding.tvCenterBottom.setVisibility(View.INVISIBLE);
+            mBinding.btnLogin.setVisibility(View.INVISIBLE);
+            mBinding.progressBar.setVisibility(View.VISIBLE);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    MyPreference.putAutoLoginValue(LoginActivity.this , true);
+
+                    mBinding.tvCenter.setText(getString(R.string.center_text_login_success));
+                    mBinding.etId.setText("");
+                    mBinding.etPw.setText("");
+                    mBinding.checkboxAutoLogin.setChecked(false);
+                    mBinding.progressBar.setVisibility(View.GONE);
+                    mBinding.btnLogin.setVisibility(View.VISIBLE);
+
+                    loginModel.setAutoLogin.set(true);
+
+                }
+            },5000);
+
+        } else{
+            Toast.makeText(LoginActivity.this, getString(R.string.msg_empty_id_pw), Toast.LENGTH_SHORT).show();
         }
     }
 }

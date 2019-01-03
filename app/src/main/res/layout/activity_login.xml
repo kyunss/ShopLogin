@@ -49,6 +49,7 @@
 
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/parent_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -58,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="24dp"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -82,6 +83,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="32dp"
                         android:gravity="center"
+                        android:minHeight="50dp"
                         android:text="@string/center_bottom_text"
                         android:textAlignment="center"
                         android:textColor="@android:color/darker_gray"
@@ -97,7 +99,8 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="32dp"
                         android:layout_marginEnd="8dp"
-                        android:text="@string/center_text"
+                        android:minHeight="50dp"
+                        android:text="@string/center_text_default"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -255,12 +258,11 @@
                         app:layout_constraintTop_toBottomOf="@+id/et_pw" />
                 </android.support.constraint.ConstraintLayout>
 
-                <com.wang.avi.AVLoadingIndicatorView
-                    android:visibility="visible"
+                <ProgressBar
+                    android:id="@+id/progress_bar"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    app:indicatorColor="@android:color/black"
-                    app:indicatorName="LineSpinFadeLoaderIndicator"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/btn_login"
                     app:layout_constraintEnd_toEndOf="@+id/btn_login"
                     app:layout_constraintStart_toStartOf="@+id/btn_login"
