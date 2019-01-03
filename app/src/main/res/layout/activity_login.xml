@@ -137,7 +137,6 @@
                         android:layout_height="30dp"
                         android:button="@null"
                         android:background="@drawable/auto_login_selector"
-                        android:onClick="@{activity::onCheckButtonClicked}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
