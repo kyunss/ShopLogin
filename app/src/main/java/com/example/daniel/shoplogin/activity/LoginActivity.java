@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -35,9 +34,9 @@ public class LoginActivity extends AppCompatActivity {
 
         //약관에 동의한 경우
         if (MyPreference.getAutoLoginValue(LoginActivity.this))
-            loginModel.setAutoLogin.set(true);
+            loginModel.setAutoLoginView.set(true);
          else
-            loginModel.setAutoLogin.set(false);
+            loginModel.setAutoLoginView.set(false);
 
     }
 
@@ -67,24 +66,21 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!id.isEmpty() && !password.isEmpty()) {
 
+            loginModel.loginStatus.set("PROGRESS");
             mBinding.tvCenter.setText(getString(R.string.center_text_login_ing));
-            mBinding.tvCenterBottom.setVisibility(View.INVISIBLE);
-            mBinding.btnLogin.setVisibility(View.INVISIBLE);
-            mBinding.progressBar.setVisibility(View.VISIBLE);
 
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     MyPreference.putAutoLoginValue(LoginActivity.this , true);
 
+                    loginModel.loginStatus.set("DONE");
+                    loginModel.setAutoLoginView.set(true);
+
                     mBinding.tvCenter.setText(getString(R.string.center_text_login_success));
                     mBinding.etId.setText("");
                     mBinding.etPw.setText("");
                     mBinding.checkboxAutoLogin.setChecked(false);
-                    mBinding.progressBar.setVisibility(View.GONE);
-                    mBinding.btnLogin.setVisibility(View.VISIBLE);
-
-                    loginModel.setAutoLogin.set(true);
 
                 }
             },5000);

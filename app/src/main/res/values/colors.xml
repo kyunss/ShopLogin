@@ -6,4 +6,6 @@
 
     <color name="conceptColor">#D81B60</color>
     <color name="layoutBackround">#FAFAFA</color>
+    <color name="lightGrey">#F1F1F1</color>
+
 </resources>
