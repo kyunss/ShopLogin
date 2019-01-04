@@ -40,7 +40,7 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -59,18 +59,18 @@
                     android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="@dimen/fix_view_margin_top_buttom"
+                    android:layout_marginBottom="@dimen/fix_view_margin_top_buttom"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/iv_login"
                         android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_height="@dimen/img_login_height"
+                        android:layout_marginStart="@dimen/img_login_margin_start"
+                        android:layout_marginTop="@dimen/img_login_margin_top"
+                        android:layout_marginEnd="@dimen/img_login_margin_end"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -80,18 +80,18 @@
 
                     <TextView
                         android:visibility="@{login.loginStatus.equals(`PROGRESS`)? View.INVISIBLE : View.VISIBLE}"
-                        android:id="@+id/tv_center_bottom"
+                        android:id="@+id/tv_msg2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="@dimen/tv_msg2_margin_start"
+                        android:layout_marginTop="@dimen/tv_msg2_margin_top"
+                        android:layout_marginEnd="@dimen/tv_msg2_margin_end"
                         android:gravity="center"
-                        android:minHeight="50dp"
+                        android:minHeight="@dimen/tv_msg2_min_height"
                         android:text="@string/center_bottom_text"
                         android:textAlignment="center"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/tv_msg2_text_size"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_center" />
@@ -102,14 +102,14 @@
                         android:id="@+id/tv_center"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="8dp"
-                        android:minHeight="50dp"
+                        android:layout_marginStart="@dimen/tv_msg1_margin_start"
+                        android:layout_marginTop="@dimen/tv_msg1_margin_top"
+                        android:layout_marginEnd="@dimen/tv_msg1_margin_end"
+                        android:minHeight="@dimen/tv_msg1_min_height"
                         android:text="@string/center_text_default"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/tv_msg1_text_size"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/iv_login" />
@@ -117,49 +117,12 @@
                 </android.support.constraint.ConstraintLayout>
 
                 <android.support.constraint.ConstraintLayout
-                    android:visibility="@{!login.setAutoLoginView}"
-                    android:id="@+id/view_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_login"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:gravity="center_vertical"
-                        android:text="@string/auto_login_agree"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/checkbox_auto_login"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <!--android:checked="@{login.loginStatus.equals(`DONE`)? true : false}"-->
-                    <CheckBox
-                        android:id="@+id/checkbox_auto_login"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:button="@null"
-                        android:background="@drawable/auto_login_selector"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </android.support.constraint.ConstraintLayout>
-
-                <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/layout_input_margin"
+                    android:layout_marginEnd="@dimen/layout_input_margin"
+                    android:layout_marginBottom="@dimen/layout_input_margin"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -168,12 +131,12 @@
                     <requestFocus />
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/iv_id_icon"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:id="@+id/img_id_icon"
+                        android:layout_width="@dimen/img_et_icon_width"
+                        android:layout_height="@dimen/img_et_icon_height"
+                        android:layout_marginStart="@dimen/img_login_margin_start"
+                        android:layout_marginTop="@dimen/img_login_margin_top"
+                        android:layout_marginBottom="@dimen/img_et_icon_margin_bottom"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -185,19 +148,18 @@
                         android:id="@+id/et_id"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="@dimen/et_margin"
+                        android:layout_marginTop="@dimen/et_margin"
+                        android:layout_marginEnd="@dimen/et_margin"
+                        android:layout_marginBottom="@dimen/et_margin"
                         android:background="@null"
                         android:ems="10"
                         android:hint="@string/login_id_hint"
-
-                        android:textSize="13sp"
+                        android:textSize="@dimen/et_text_size"
                         android:inputType="textPersonName"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/iv_id_icon"
+                        app:layout_constraintStart_toEndOf="@+id/img_id_icon"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
@@ -217,20 +179,20 @@
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/layout_input_margin"
+                    android:layout_marginEnd="@dimen/layout_input_margin"
+                    android:layout_marginBottom="@dimen/layout_input_margin"
                     app:layout_constraintBottom_toTopOf="@+id/view_login"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:id="@+id/img_pw_icon"
+                        android:layout_width="@dimen/img_et_icon_width"
+                        android:layout_height="@dimen/img_et_icon_height"
+                        android:layout_marginStart="@dimen/img_login_margin_start"
+                        android:layout_marginTop="@dimen/img_login_margin_top"
+                        android:layout_marginBottom="@dimen/img_et_icon_margin_bottom"
                         android:scaleType="center"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -241,18 +203,18 @@
                         android:id="@+id/et_pw"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="@dimen/et_margin"
+                        android:layout_marginTop="@dimen/et_margin"
+                        android:layout_marginEnd="@dimen/et_margin"
+                        android:layout_marginBottom="@dimen/et_margin"
                         android:background="@null"
                         android:ems="10"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/et_text_size"
                         android:hint="@string/login_pw_hint"
                         android:inputType="textPassword"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintStart_toEndOf="@+id/img_pw_icon"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
@@ -267,11 +229,48 @@
                         app:layout_constraintTop_toBottomOf="@+id/et_pw" />
                 </android.support.constraint.ConstraintLayout>
 
+                <android.support.constraint.ConstraintLayout
+                    android:visibility="@{!login.setAutoLoginView}"
+                    android:id="@+id/view_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/view_login_margin_start"
+                    android:layout_marginEnd="@dimen/view_login_margin_end"
+                    android:layout_marginBottom="@dimen/view_login_margin_bottom"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_login"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/auto_login_agree"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/checkbox_auto_login"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--android:checked="@{login.loginStatus.equals(`DONE`)? true : false}"-->
+                    <CheckBox
+                        android:id="@+id/checkbox_auto_login"
+                        android:layout_width="@dimen/checkbox_width"
+                        android:layout_height="@dimen/checkbox_height"
+                        android:button="@null"
+                        android:background="@drawable/auto_login_selector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
                 <ProgressBar
                     android:visibility="@{login.loginStatus.equals(`PROGRESS`)? View.VISIBLE : View.GONE}"
                     android:id="@+id/progress_bar"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/progressbar_width"
+                    android:layout_height="@dimen/progressbar_height"
                     app:layout_constraintBottom_toBottomOf="@+id/btn_login"
                     app:layout_constraintEnd_toEndOf="@+id/btn_login"
                     app:layout_constraintStart_toStartOf="@+id/btn_login"
@@ -281,15 +280,15 @@
                     android:visibility="@{login.loginStatus.equals(`PROGRESS`)? View.INVISIBLE : View.VISIBLE}"
                     android:id="@+id/btn_login"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_marginStart="@dimen/btn_height_margin_start"
+                    android:layout_marginEnd="@dimen/btn_height_margin_end"
+                    android:layout_marginBottom="@dimen/btn_height_margin_bottom"
                     android:background="@color/conceptColor"
                     android:onClick="@{activity::onLoginButtonClicked}"
                     android:text="@string/login_button"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/btn_height_text_size"
                     app:layout_constraintBottom_toTopOf="@+id/btn_find_info"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -297,12 +296,13 @@
                 <Button
                     android:id="@+id/btn_find_info"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_marginStart="@dimen/btn_height_margin_start"
+                    android:layout_marginEnd="@dimen/btn_height_margin_end"
+                    android:layout_marginBottom="@dimen/btn_height_margin_bottom"
                     android:background="@android:color/transparent"
                     android:text="@string/find_id_password_button"
+                    android:textSize="@dimen/btn_height_text_size"
                     app:layout_constraintBottom_toTopOf="@+id/btn_auto_login_terms"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -311,12 +311,13 @@
                     android:visibility="@{login.setAutoLoginView}"
                     android:id="@+id/btn_auto_login_terms"
                     android:layout_width="0dp"
-                    android:layout_height="65dp"
+                    android:layout_height="@dimen/btn_term_height"
                     android:text="@string/terms_auto_login_button"
+                    android:textSize="@dimen/btn_height_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
             </android.support.constraint.ConstraintLayout>
-        </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
 </layout>

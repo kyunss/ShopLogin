@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="fix_view_margin_top_buttom">24dp</dimen>
+
+    <dimen name="img_login_height">130dp</dimen>
+    <dimen name="img_login_margin_start">8dp</dimen>
+    <dimen name="img_login_margin_top">16dp</dimen>
+    <dimen name="img_login_margin_end">8dp</dimen>
+
+    <dimen name="tv_msg1_margin_start">8dp</dimen>
+    <dimen name="tv_msg1_margin_top">8dp</dimen>
+    <dimen name="tv_msg1_margin_end">8dp</dimen>
+    <dimen name="tv_msg1_min_height">50dp</dimen>
+    <dimen name="tv_msg1_text_size">18sp</dimen>
+
+    <dimen name="tv_msg2_margin_start">32dp</dimen>
+    <dimen name="tv_msg2_margin_top">8dp</dimen>
+    <dimen name="tv_msg2_margin_end">32dp</dimen>
+    <dimen name="tv_msg2_min_height">50dp</dimen>
+    <dimen name="tv_msg2_text_size">12sp</dimen>
+
+    <dimen name="layout_input_margin">24dp</dimen>
+
+    <dimen name="img_et_icon_width">35dp</dimen>
+    <dimen name="img_et_icon_height">35dp</dimen>
+    <dimen name="img_et_icon_margin_start">8dp</dimen>
+    <dimen name="img_et_icon_margin_top">8dp</dimen>
+    <dimen name="img_et_icon_margin_bottom">8dp</dimen>
+
+    <dimen name="et_margin">8dp</dimen>
+    <dimen name="et_text_size">13dp</dimen>
+
+    <dimen name="view_login_margin_start">24dp</dimen>
+    <dimen name="view_login_margin_end">24dp</dimen>
+    <dimen name="view_login_margin_bottom">16dp</dimen>
+
+    <dimen name="checkbox_width">30dp</dimen>
+    <dimen name="checkbox_height">30dp</dimen>
+
+    <dimen name="progressbar_width">30dp</dimen>
+    <dimen name="progressbar_height">30dp</dimen>
+
+    <dimen name="btn_height">60dp</dimen>
+    <dimen name="btn_height_margin_start">24dp</dimen>
+    <dimen name="btn_height_margin_end">24dp</dimen>
+    <dimen name="btn_height_margin_bottom">8dp</dimen>
+    <dimen name="btn_height_text_size">16sp</dimen>
+
+    <dimen name="btn_term_height">70dp</dimen>
+
+
+
+
+
+</resources>
