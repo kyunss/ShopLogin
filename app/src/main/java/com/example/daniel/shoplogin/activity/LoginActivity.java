@@ -30,9 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         mBinding.setLogin(loginModel);
         mBinding.setActivity(this);
 
-        MyPreference.putAutoLoginValue(LoginActivity.this , false); // FOR TEST
-
-        //약관에 동의했을 경우
+        //약관 동의 여부
         if (MyPreference.getAutoLoginValue(LoginActivity.this))
             loginModel.setAutoLoginView.set(true);
         else
