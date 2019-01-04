@@ -1,9 +1,9 @@
 package com.example.daniel.shoplogin.activity;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
@@ -30,25 +30,25 @@ public class LoginActivity extends AppCompatActivity {
         mBinding.setLogin(loginModel);
         mBinding.setActivity(this);
 
-        MyPreference.putAutoLoginValue(LoginActivity.this , false); // FOR TEST
+//        MyPreference.putAutoLoginValue(LoginActivity.this , false); // FOR TEST
 
-        //약관에 동의한 경우
+        //약관에 동의했을 경우
         if (MyPreference.getAutoLoginValue(LoginActivity.this))
             loginModel.setAutoLoginView.set(true);
-         else
+        else
             loginModel.setAutoLoginView.set(false);
 
     }
 
     public void onLoginButtonClicked(View view) {
 
-        /** 기존 사용자인 경우 **/
+        //기존 사용자인 경우
         if (MyPreference.getAutoLoginValue(LoginActivity.this)) {
 
             login();
 
         } else {
-            /** 처음 로그인 하는 경우 **/
+            //처음 로그인하는 경우
             if (mBinding.checkboxAutoLogin.isChecked()) {
 
                 login();
@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void login(){
+    public void login() {
 
         String id = mBinding.etId.getText().toString();
         String password = mBinding.etPw.getText().toString();
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    MyPreference.putAutoLoginValue(LoginActivity.this , true);
+                    MyPreference.putAutoLoginValue(LoginActivity.this, true);
 
                     loginModel.loginStatus.set("DONE");
                     loginModel.setAutoLoginView.set(true);
@@ -83,9 +83,9 @@ public class LoginActivity extends AppCompatActivity {
                     mBinding.checkboxAutoLogin.setChecked(false);
 
                 }
-            },5000);
+            }, 5000);
 
-        } else{
+        } else {
             Toast.makeText(LoginActivity.this, getString(R.string.msg_empty_id_pw), Toast.LENGTH_SHORT).show();
         }
     }
