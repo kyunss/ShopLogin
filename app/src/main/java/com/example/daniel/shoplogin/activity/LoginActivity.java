@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         mBinding.setLogin(loginModel);
         mBinding.setActivity(this);
 
-//        MyPreference.putAutoLoginValue(LoginActivity.this , false); // FOR TEST
+        MyPreference.putAutoLoginValue(LoginActivity.this , false); // FOR TEST
 
         //약관에 동의했을 경우
         if (MyPreference.getAutoLoginValue(LoginActivity.this))
@@ -66,21 +66,25 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!id.isEmpty() && !password.isEmpty()) {
 
-            loginModel.loginStatus.set("PROGRESS");
             mBinding.tvCenter.setText(getString(R.string.center_text_login_ing));
+            mBinding.tvMsg2.setVisibility(View.INVISIBLE);
+            mBinding.btnLogin.setText("");
+            mBinding.progressBar.bringToFront();
+            mBinding.progressBar.setVisibility(View.VISIBLE);
 
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    MyPreference.putAutoLoginValue(LoginActivity.this, true);
 
-                    loginModel.loginStatus.set("DONE");
-                    loginModel.setAutoLoginView.set(true);
+                    //자동 로그인 설정
+                    if (!MyPreference.getAutoLoginValue(LoginActivity.this)){
+                        MyPreference.putAutoLoginValue(LoginActivity.this, true);
+                        loginModel.setAutoLoginView.set(true);
+                    }
 
                     mBinding.tvCenter.setText(getString(R.string.center_text_login_success));
-                    mBinding.etId.setText("");
-                    mBinding.etPw.setText("");
-                    mBinding.checkboxAutoLogin.setChecked(false);
+                    mBinding.progressBar.setVisibility(View.GONE);
+                    mBinding.btnLogin.setText(getString(R.string.login_button));
 
                 }
             }, 5000);
